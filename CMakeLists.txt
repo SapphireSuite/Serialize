@@ -6,9 +6,9 @@ cmake_minimum_required(VERSION 3.16)
 
 # Project
 
-project(SA_Serializer)
+project(SA_Serialize)
 
-message("SA_Serializer Main directory: ${CMAKE_CURRENT_SOURCE_DIR}")
+message("SA_Serialize Main directory: ${CMAKE_CURRENT_SOURCE_DIR}")
 
 
 
@@ -23,7 +23,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)		# .dll / .so
 
 # Input
 
-file(GLOB_RECURSE SA_SERIALIZER_SOURCES "Source/*")
+file(GLOB_RECURSE SA_SERIALIZE_SOURCES "Source/*")
 
 
 
@@ -31,29 +31,29 @@ file(GLOB_RECURSE SA_SERIALIZER_SOURCES "Source/*")
 
 
 ## Static library.
-add_library(SA_Serializer STATIC ${SA_SERIALIZER_SOURCES})
+add_library(SA_Serialize STATIC ${SA_SERIALIZE_SOURCES})
 
 
 ## Include directories
-target_include_directories(SA_Serializer PUBLIC Include)
-target_include_directories(SA_Serializer PRIVATE Include/SA/Serializer)
+target_include_directories(SA_Serialize PUBLIC Include)
+target_include_directories(SA_Serialize PRIVATE Include/SA/Serialize)
 
 
 ## Compile features
 
 ### Standard
-target_compile_features(SA_Serializer PUBLIC c_std_11)
-target_compile_features(SA_Serializer PUBLIC cxx_std_20)
+target_compile_features(SA_Serialize PUBLIC c_std_11)
+target_compile_features(SA_Serialize PUBLIC cxx_std_20)
 
-### SA_Serializer module implementation preprocessor.
-target_compile_definitions(SA_Serializer PUBLIC SA_SERIALIZER_IMPL)
+### SA_Serialize module implementation preprocessor.
+target_compile_definitions(SA_Serialize PUBLIC SA_SERIALIZER_IMPL)
 
 
 
 # Options
 
-## Add SA_Serializer's tests to build tree.
-option(SA_SERIALIZER_BUILD_TESTS_OPT "Should build SA_Serializer tests" OFF)
+## Add SA_Serialize's tests to build tree.
+option(SA_SERIALIZE_BUILD_TESTS_OPT "Should build SA_Serialize tests" OFF)
 
 
 
@@ -61,7 +61,7 @@ option(SA_SERIALIZER_BUILD_TESTS_OPT "Should build SA_Serializer tests" OFF)
 
 add_subdirectory(ThirdParty)
 
-if(SA_SERIALIZER_BUILD_TESTS_OPT)
+if(SA_SERIALIZE_BUILD_TESTS_OPT)
 
 	### Enable testing for this directory and below.
 	enable_testing()

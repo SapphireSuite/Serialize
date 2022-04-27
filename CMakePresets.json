@@ -12,7 +12,7 @@
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/CMake/install/${presetName}",
                 "CMAKE_C_COMPILER": "/usr/bin/clang",
                 "CMAKE_CXX_COMPILER": "/usr/bin/clang++",
-                "SA_SERIALIZER_BUILD_TESTS_OPT": "True"
+                "SA_SERIALIZE_BUILD_TESTS_OPT": "True"
             }
         },
         {
@@ -26,7 +26,7 @@
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/CMake/install/${presetName}",
                 "CMAKE_C_COMPILER": "/usr/bin/clang",
                 "CMAKE_CXX_COMPILER": "/usr/bin/clang++",
-                "SA_SERIALIZER_BUILD_TESTS_OPT": "True"
+                "SA_SERIALIZE_BUILD_TESTS_OPT": "True"
             }
         },
         {
@@ -39,7 +39,7 @@
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/CMake/install/${presetName}",
                 "CMAKE_C_COMPILER": "/usr/bin/gcc",
                 "CMAKE_CXX_COMPILER": "/usr/bin/g++",
-                "SA_SERIALIZER_BUILD_TESTS_OPT": "True"
+                "SA_SERIALIZE_BUILD_TESTS_OPT": "True"
             }
         },
         {
@@ -52,7 +52,7 @@
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/CMake/install/${presetName}",
                 "CMAKE_C_COMPILER": "/usr/bin/gcc",
                 "CMAKE_CXX_COMPILER": "/usr/bin/g++",
-                "SA_SERIALIZER_BUILD_TESTS_OPT": "True"
+                "SA_SERIALIZE_BUILD_TESTS_OPT": "True"
             }
         }
     ]

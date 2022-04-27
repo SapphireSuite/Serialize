@@ -4,7 +4,7 @@
 
 # Project
 
-project(SA_SerializerUT)
+project(SA_SerializeUT)
 
 SA_FetchGoogleTest()
 
@@ -14,23 +14,23 @@ SA_FetchGoogleTest()
 
 ## Inputs
 
-file(GLOB_RECURSE SA_SERIALIZER_UT_SOURCES "*.cpp")
+file(GLOB_RECURSE SA_SERIALIZE_UT_SOURCES "*.cpp")
 
 ## Add executable target.
-add_executable(SA_SerializerUT ${SA_SERIALIZER_UT_SOURCES})
+add_executable(SA_SerializeUT ${SA_SERIALIZE_UT_SOURCES})
 
 
 
 # Dependencies
 
 ### Add library dependencies.
-target_link_libraries(SA_SerializerUT PRIVATE SA_Serializer)
+target_link_libraries(SA_SerializeUT PRIVATE SA_Serialize)
 
 ### Google test module dependency.
-target_link_libraries(SA_SerializerUT PRIVATE gtest)
+target_link_libraries(SA_SerializeUT PRIVATE gtest)
 
 
 
 # Tests
 
-add_test(NAME CSA_SerializerUT COMMAND SA_SerializerUT)
+add_test(NAME CSA_SerializeUT COMMAND SA_SerializeUT)
