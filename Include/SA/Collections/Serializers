@@ -6,5 +6,6 @@
 #define SAPPHIRE_COLLECTIONS_SERIALIZER_GUARD
 
 #include <SA/Serialize/Serializers/VectorSerializer.hpp>
+#include <SA/Serialize/Serializers/StringSerializer.hpp>
 
 #endif // GUARD
