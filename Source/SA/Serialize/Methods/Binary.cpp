@@ -2,7 +2,7 @@
 
 #include <cstring> // std::memcpy
 
-#include <SA/Serialize/Binary/BinarySerializer.hpp>
+#include <SA/Serialize/Methods/Binary.hpp>
 
 namespace Sa::Ser
 {

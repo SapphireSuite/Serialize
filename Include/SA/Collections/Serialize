@@ -1,0 +1,11 @@
+// Copyright(c) 2022 Sapphire's Suite. All Rights Reserved.
+
+#pragma once
+
+#ifndef SAPPHIRE_COLLECTIONS_SERIALIZE_GUARD
+#define SAPPHIRE_COLLECTIONS_SERIALIZE_GUARD
+
+#include <SA/Collections/Serializers>
+#include <SA/Collections/SerializeMethods>
+
+#endif // GUARD

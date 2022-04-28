@@ -4,7 +4,7 @@
 
 #define LOG(_str) std::cout << _str << std::endl;
 
-#include <SA/Serialize/Binary/BinarySerializer.hpp>
+#include <SA/Collections/Serialize>
 using namespace Sa::Ser;
 
 struct A
@@ -13,19 +13,46 @@ struct A
 	float j = 0.0f;
 };
 
+namespace Sa::Ser
+{
+	template<>
+	struct TypeSpecs<A>
+	{
+		static constexpr bool bContinuousData = true;
+	};
+}
+
 int main()
 {
-	A src { 5, 3.25f };
-	std::string srcStr;
+	LOG("Single");
+	{
+		A src { 5, 3.25f };
+		std::string srcStr;
 
-	Serialize::To<Binary>(src, srcStr);
+		To<Binary>(src, srcStr);
 
-	A dst;
-	Reader read(srcStr);
-	Serialize::From<Binary>(dst, read);
+		A dst;
+		Reader read(srcStr);
+		From<Binary>(dst, read);
 
-	LOG("dst.i: " << dst.i);
-	LOG("dst.j: " << dst.j);
+		LOG("{ " << dst.i << ", " << dst.j << " }");
+	}
+
+
+	LOG("vector");
+	{
+		std::vector<A> v1 = { { 6, 4.25f }, { 7, 10.2f } };
+
+		std::string vSrcStr;
+		To<Binary>(v1, vSrcStr);
+
+		std::vector<A> v2;
+		Reader vRead(vSrcStr);
+		From<Binary>(v2, vRead);
+
+		for(auto it = v2.begin(); it != v2.end(); ++it)
+			LOG("{ " << it->i << ", " << it->j << " }");
+	}
 
 	return 0;
 }
