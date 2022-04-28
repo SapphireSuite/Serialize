@@ -19,14 +19,14 @@ namespace Sa::Ser
     class Serializer
     {
     public:
-        void From(T& _obj, Reader& _read)
+        void From(T& _obj, Reader& _read, const std::string& _name = "")
         {
-            Serialize<method>::From(_obj, _read);
+            Serialize<method>::From(_obj, _read, _name);
         }
 
-        void To(const T& _obj, std::string& _str)
+        void To(const T& _obj, std::string& _str, const std::string& _name = "")
         {
-            Serialize<method>::To(_obj, _str);
+            Serialize<method>::To(_obj, _str, _name);
         }
     };
 
@@ -44,17 +44,17 @@ namespace Sa::Ser
          * @param _str 
          */
         template<Method method, typename T>
-        void From(T& _obj, Reader& _read)
+        void From(T& _obj, Reader& _read, const std::string& _name = "")
         {
-            Serializer<T, method>().From(_obj, _read);
+            Serializer<T, method>().From(_obj, _read, _name);
         }
 
         template<Method method, typename T>
-        T From(Reader& _read)
+        T From(Reader& _read, const std::string& _name = "")
         {
             T obj;
 
-            From(obj, _read);
+            From(obj, _read, _name);
 
             return obj;
         }
@@ -73,17 +73,17 @@ namespace Sa::Ser
          * @param _str 
          */
         template<Method method, typename T>
-        void To(const T& _obj, std::string& _str)
+        void To(const T& _obj, std::string& _str, const std::string& _name = "")
         {
-            Serializer<T, method>().To(_obj, _str);
+            Serializer<T, method>().To(_obj, _str, _name);
         }
 
         template<Method method, typename T>
-        std::string To(const T& _obj)
+        std::string To(const T& _obj, const std::string& _name = "")
         {
             std::string out;
 
-            To(_obj, out);
+            To(_obj, out, _name);
 
             return out;
         }

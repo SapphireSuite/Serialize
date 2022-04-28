@@ -20,14 +20,18 @@ namespace Sa::Ser
     {
     public:
         template<typename T>
-        static void From(T& _obj, Reader& _reader)
+        static void From(T& _obj, Reader& _reader, const std::string& _name = "")
         {
+            (void)_name;
+
             Intl::FromBinary(&_obj, sizeof(T), _reader);
         }
 
         template<typename T>
-        static void From(T* _objs, uint32_t _size, Reader& _read)
+        static void From(T* _objs, uint32_t _size, Reader& _read, const std::string& _name = "")
         {
+            (void)_name;
+
             if constexpr(TypeSpecs<T>::bContinuousData)
                 Intl::FromBinary(_objs, sizeof(T) * _size, _read);
             else
@@ -39,14 +43,18 @@ namespace Sa::Ser
 
 
         template<typename T>
-        static void To(const T& _obj, std::string& _str)
+        static void To(const T& _obj, std::string& _str, const std::string& _name = "")
         {
+            (void)_name;
+
             Intl::ToBinary(&_obj, sizeof(T), _str);
         }
 
         template<typename T>
-        static void To(const T* _objs, uint32_t _size, std::string& _str)
+        static void To(const T* _objs, uint32_t _size, std::string& _str, const std::string& _name = "")
         {
+            (void)_name;
+
             if constexpr(TypeSpecs<T>::bContinuousData)
                 Intl::ToBinary(_objs, sizeof(T) * _size, _str);
             else
