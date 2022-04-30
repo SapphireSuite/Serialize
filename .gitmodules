@@ -1,3 +1,6 @@
 [submodule "ThirdParty/SA/CMake_Utils"]
 	path = ThirdParty/SA/CMake_Utils
 	url = git@github.com:SapphireSuite/CMake_Utils.git
+[submodule "ThirdParty/Refureku"]
+	path = ThirdParty/Refureku
+	url = https://github.com/jsoysouvanh/Refureku.git
