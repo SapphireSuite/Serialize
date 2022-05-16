@@ -40,7 +40,7 @@ target_include_directories(SA_Serialize PRIVATE Include/SA/Serialize)
 
 
 ## Link libraries
-target_link_libraries(SA_Serialize Refureku JSON)
+target_link_libraries(SA_Serialize PUBLIC Refureku JSON)
 
 
 ## Compile features

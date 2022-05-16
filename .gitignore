@@ -39,6 +39,9 @@ googletest/
 [Ll]ogs/
 
 
+# Refureku
+Generated/
+
 # Documentation generated files
 html/
 latex/
