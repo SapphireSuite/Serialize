@@ -4,7 +4,7 @@
 
 namespace SA::Ser
 {
-	IOBinaryStream::IOBinaryStream(std::string&& _bin) :
+	BinaryStream::BinaryStream(std::string&& _bin) :
 		bin{ std::move(_bin) }
 	{
 	}

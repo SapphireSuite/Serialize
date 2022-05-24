@@ -26,7 +26,7 @@ int main()
 {
 
 	{
-		Ser::IOBinaryStream ser;
+		Ser::BinaryStream ser;
 
 		const A a1 { 5, 3.24f };
 		ser << a1;
@@ -39,7 +39,7 @@ int main()
 
 
 	{
-		Ser::IOBinaryStream ser;
+		Ser::BinaryStream ser;
 
 		const std::string str1 = "hellllo";
 		ser << str1;
@@ -52,7 +52,7 @@ int main()
 
 
 	{
-		Ser::IOBinaryStream ser;
+		Ser::BinaryStream ser;
 
 		const std::vector<float> v1 = {4.25f, 3.25f, 2.34f, 1111.2f};
 		ser << v1;

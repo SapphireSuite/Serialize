@@ -9,18 +9,18 @@
 
 namespace SA::Ser
 {
-	class IOBinaryStream
+	class BinaryStream
 	{
 		size_t mOffset  = 0u;
 
 	public:
 		std::string bin;
 
-		IOBinaryStream() = default;
-		IOBinaryStream(std::string&& _bin);
+		BinaryStream() = default;
+		BinaryStream(std::string&& _bin);
 
 		template <typename T>
-		IOBinaryStream& operator<<(const T& _obj)
+		BinaryStream& operator<<(const T& _obj)
 		{
 			ToBinary(_obj, bin);
 
@@ -28,7 +28,7 @@ namespace SA::Ser
 		}
 
 		template <typename T>
-		IOBinaryStream& operator>>(T& _obj)
+		BinaryStream& operator>>(T& _obj)
 		{
 			FromBinary(_obj, bin, mOffset);
 
