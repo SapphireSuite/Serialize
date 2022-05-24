@@ -48,54 +48,72 @@ int main()
 {
 
 	{
-		Ser::JSONStream ser;
+		Ser::BinaryStream serBIN;
+		Ser::JSONStream serJSON;
 
-		const A a1 { 5, 3.24f };
-		ser << a1;
+		const A a0 { 5, 3.24f };
+		serBIN << a0;
+		serJSON << a0;
 
-		A a2;
-		ser >> a2;
+		A aBIN;
+		serBIN >> aBIN;
+		LOG("BIN:\ti: " << aBIN.i << "\tj: " << aBIN.j);
 
-		LOG("i: " << a2.i << "\tj: " << a2.j);
+		A aJSON;
+		serJSON >> aJSON;
+		LOG("JSON:\ti: " << aJSON.i << "\tj: " << aJSON.j);
 	}
 
 
 	{
-		Ser::JSONStream ser;
+		Ser::BinaryStream serBIN;
+		Ser::JSONStream serJSON;
 
-		const std::string str1 = "hellllo";
-		ser << str1;
+		const std::string str0 = "hellllo";
+		serBIN << str0;
+		serJSON << str0;
 
-		std::string str2;
-		ser >> str2;
+		std::string strBIN;
+		serBIN >> strBIN;
+		LOG("BIN:\t" << strBIN);
 
-
-		LOG(str2);
+		std::string strJSON;
+		serJSON >> strJSON;
+		LOG("JSON:\t" << strJSON);
 	}
 
 
 	{
-		Ser::JSONStream ser;
+		Ser::BinaryStream serBIN;
+		Ser::JSONStream serJSON;
 
-		const std::vector<float> v1 = { 4.25f, 3.25f, 2.34f, 1111.2f };
-		ser << v1;
+		const std::vector<float> v0 = { 4.25f, 3.25f, 2.34f, 1111.2f };
+		serBIN << v0;
+		serJSON << v0;
 
-		std::vector<float> v2;
-		ser >> v2;
-
-
-		std::string logStr = "{ ";
+		std::vector<float> vBIN;
+		serBIN >> vBIN;
 		
-		for(auto& f : v2)
-		{
-			logStr += std::to_string(f);
-			logStr += ", ";
-		}
+		std::vector<float> vJSON;
+		serJSON >> vJSON;
 
-		logStr[logStr.size() - 2] = ' ';
-		logStr[logStr.size() - 1] = '}';
+		auto print = [](const std::vector<float>& _v, std::string _name){
+			std::string logStr = _name + ":\t{ ";
+			
+			for(auto& f : _v)
+			{
+				logStr += std::to_string(f);
+				logStr += ", ";
+			}
 
-		LOG(logStr);
+			logStr[logStr.size() - 2] = ' ';
+			logStr[logStr.size() - 1] = '}';
+
+			LOG(logStr);
+		};
+
+		print(vBIN , "BIN");
+		print(vJSON , "JSON");
 	}
 
 
