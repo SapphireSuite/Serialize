@@ -12,9 +12,21 @@ namespace SA::Ser
 //{ ToJSON: Serialize
 
 	template <typename T>
+	bool ToJSON(const T& _obj,  nlohmann::json& _json)
+	{
+		_json = _obj;
+
+		return true;
+	}
+
+	template <typename T>
 	nlohmann::json ToJSON(const T& _obj)
 	{
-		return nlohmann::json(_obj);
+		nlohmann::json json;
+
+		ToJSON(_obj, json);
+
+		return json;
 	}
 
 //}
@@ -22,9 +34,11 @@ namespace SA::Ser
 //{ FromJSON: Deserialize
 
 	template <typename T>
-	void FromJSON(T& _obj, const nlohmann::json& _json)
+	bool FromJSON(T& _obj, const nlohmann::json& _json)
 	{
 		_obj = _json.get<T>();
+
+		return true;
 	}
 
 //}

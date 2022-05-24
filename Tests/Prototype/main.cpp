@@ -23,21 +23,23 @@ namespace SA::Ser
 
 
 	template <>
-	nlohmann::json ToJSON<A>(const A& _obj)
+	bool ToJSON<A>(const A& _obj, nlohmann::json& _json)
 	{
-		nlohmann::json json;
+		_json['i'] = _obj.i;
+		_json['j'] = _obj.j;
 
-		json['i'] = _obj.i;
-		json['j'] = _obj.j;
-
-		return json;
+		return true;
 	}
 
 	template <>
-	void FromJSON<A>(A& _obj, const nlohmann::json& _json)
+	bool FromJSON<A>(A& _obj, const nlohmann::json& _json)
 	{
 		_obj.i = _json['i'].get<int>();
 		_obj.j = _json['j'].get<float>();
+
+		/** Handle JSON exceptions: return false. */
+
+		return true;
 	}
 
 }

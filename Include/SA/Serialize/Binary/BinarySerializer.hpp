@@ -19,10 +19,10 @@ namespace SA::Ser
 	}
 
 	template <typename T>
-	void ToBinary(const T& _obj, std::string& _dst);
+	bool ToBinary(const T& _obj, std::string& _dst);
 
 	template <typename T>
-	void ToBinary(const T* _objs, size_t _size, std::string& _dst);
+	bool ToBinary(const T* _objs, size_t _size, std::string& _dst);
 
 //}
 
@@ -34,10 +34,10 @@ namespace SA::Ser
 	}
 
 	template <typename T>
-	void FromBinary(T& _obj, const std::string& _src, size_t& _offset);
+	bool FromBinary(T& _obj, const std::string& _src, size_t& _offset);
 
 	template <typename T>
-	void FromBinary(T* _objs, size_t _size, const std::string& _src, size_t& _offset);
+	bool FromBinary(T* _objs, size_t _size, const std::string& _src, size_t& _offset);
 
 //}
 }

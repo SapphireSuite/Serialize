@@ -19,12 +19,39 @@ namespace SA::Ser
 	public:
 		nlohmann::json json;
 
+//{ Serialize
+
+		template <typename T>
+		bool Serialize(const T& _obj)
+		{
+			nlohmann::json objJSON;
+
+			if(ToJSON(_obj, objJSON))
+			{
+				json[mInOffset++] = objJSON;
+
+				return true;
+			}
+
+			return false;
+		}
+
 		template <typename T>
 		JSONStream& operator<<(const T& _obj)
 		{
 			json[mInOffset++] = ToJSON(_obj);
 
 			return *this;
+		}
+
+//}
+
+//{ Deserialize
+
+		template <typename T>
+		bool Deserialize(T& _obj)
+		{
+			return FromJSON(_obj, json[mOutOffset++]);
 		}
 
 		template <typename T>
@@ -34,6 +61,8 @@ namespace SA::Ser
 
 			return *this;
 		}
+
+//}
 	};
 }
 
