@@ -1,0 +1,13 @@
+// Copyright(c) 2022 Sapphire's Suite. All Rights Reserved.
+
+#pragma once
+
+#ifndef SAPPHIRE_COLLECTIONS_SERIALIZE_BINARY_GUARD
+#define SAPPHIRE_COLLECTIONS_SERIALIZE_BINARY_GUARD
+
+#include <SA/Serialize/Binary/Specs/VectorBinarySerializer.hpp>
+#include <SA/Serialize/Binary/Specs/StringBinarySerializer.hpp>
+
+#include <SA/Serialize/Binary/BinaryStream.hpp>
+
+#endif // GUARD

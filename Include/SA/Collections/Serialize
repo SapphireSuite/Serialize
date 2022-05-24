@@ -5,7 +5,7 @@
 #ifndef SAPPHIRE_COLLECTIONS_SERIALIZE_GUARD
 #define SAPPHIRE_COLLECTIONS_SERIALIZE_GUARD
 
-#include <SA/Collections/Serializers>
-#include <SA/Collections/SerializeMethods>
+#include <SA/Collections/SerializeBinary>
+#include <SA/Collections/SerializeJSON>
 
 #endif // GUARD

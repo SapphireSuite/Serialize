@@ -39,6 +39,10 @@ target_include_directories(SA_Serialize PUBLIC Include)
 target_include_directories(SA_Serialize PRIVATE Include/SA/Serialize)
 
 
+## Link libraries
+target_link_libraries(SA_Serialize PUBLIC JSON)
+
+
 ## Compile features
 
 ### Standard
