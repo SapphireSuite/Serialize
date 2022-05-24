@@ -20,13 +20,33 @@ namespace SA::Ser
 	{
 		static constexpr bool bContinuousData = true;
 	};
+
+
+	template <>
+	nlohmann::json ToJSON<A>(const A& _obj)
+	{
+		nlohmann::json json;
+
+		json['i'] = _obj.i;
+		json['j'] = _obj.j;
+
+		return json;
+	}
+
+	template <>
+	void FromJSON<A>(A& _obj, const nlohmann::json& _json)
+	{
+		_obj.i = _json['i'].get<int>();
+		_obj.j = _json['j'].get<float>();
+	}
+
 }
 
 int main()
 {
 
 	{
-		Ser::BinaryStream ser;
+		Ser::JSONStream ser;
 
 		const A a1 { 5, 3.24f };
 		ser << a1;
@@ -39,7 +59,7 @@ int main()
 
 
 	{
-		Ser::BinaryStream ser;
+		Ser::JSONStream ser;
 
 		const std::string str1 = "hellllo";
 		ser << str1;
@@ -47,12 +67,13 @@ int main()
 		std::string str2;
 		ser >> str2;
 
+
 		LOG(str2);
 	}
 
 
 	{
-		Ser::BinaryStream ser;
+		Ser::JSONStream ser;
 
 		const std::vector<float> v1 = { 4.25f, 3.25f, 2.34f, 1111.2f };
 		ser << v1;
@@ -60,7 +81,6 @@ int main()
 		std::vector<float> v2;
 		ser >> v2;
 
-		// LOG(str2);
 
 		std::string logStr = "{ ";
 		
