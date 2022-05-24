@@ -18,7 +18,7 @@ add_executable(SA_SerializeProto "main.cpp")
 # Dependencies
 
 ### Add library dependencies.
-target_link_libraries(SA_SerializeProto PRIVATE SA_Serialize)
+target_link_libraries(SA_SerializeProto PUBLIC SA_Serialize)
 
 
 
