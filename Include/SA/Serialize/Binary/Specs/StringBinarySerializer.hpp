@@ -10,6 +10,13 @@
 namespace SA::Ser
 {
 	template <typename T>
+	void ToBinary(const std::basic_string<T>& _str, std::string& _dst)
+	{
+		ToBinary(_str.size(), _dst);
+		ToBinary(_str.data(), _str.size(), _dst);
+	}
+
+	template <typename T>
 	void FromBinary(std::basic_string<T>& _str, const std::string& _src, size_t& _offset)
 	{
 		size_t size = 0u;
@@ -17,13 +24,6 @@ namespace SA::Ser
 
 		_str.resize(size);
 		FromBinary(_str.data(), size, _src, _offset);
-	}
-
-	template <typename T>
-	void ToBinary(const std::basic_string<T>& _str, std::string& _dst)
-	{
-		ToBinary(_str.size(), _dst);
-		ToBinary(_str.data(), _str.size(), _dst);
 	}
 }
 

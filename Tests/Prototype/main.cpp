@@ -54,7 +54,7 @@ int main()
 	{
 		Ser::BinaryStream ser;
 
-		const std::vector<float> v1 = {4.25f, 3.25f, 2.34f, 1111.2f};
+		const std::vector<float> v1 = { 4.25f, 3.25f, 2.34f, 1111.2f };
 		ser << v1;
 
 		std::vector<float> v2;

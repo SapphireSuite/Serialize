@@ -11,23 +11,7 @@
 
 namespace SA::Ser
 {
-//{ FromBinary
-
-	namespace Intl
-	{
-		void FromBinary(void* _data, size_t _size, const std::string& _src, size_t &_offset);
-	}
-
-	template <typename T>
-	void FromBinary(T& _obj, const std::string& _src, size_t& _offset);
-
-	template <typename T>
-	void FromBinary(T* _objs, size_t _size, const std::string& _src, size_t& _offset);
-
-//}
-
-
-//{ ToBinary
+//{ ToBinary: Serialize
 
 	namespace Intl
 	{
@@ -39,6 +23,21 @@ namespace SA::Ser
 
 	template <typename T>
 	void ToBinary(const T* _objs, size_t _size, std::string& _dst);
+
+//}
+
+//{ FromBinary: Deserialize
+
+	namespace Intl
+	{
+		void FromBinary(void* _data, size_t _size, const std::string& _src, size_t &_offset);
+	}
+
+	template <typename T>
+	void FromBinary(T& _obj, const std::string& _src, size_t& _offset);
+
+	template <typename T>
+	void FromBinary(T* _objs, size_t _size, const std::string& _src, size_t& _offset);
 
 //}
 }
