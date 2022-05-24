@@ -1,8 +1,6 @@
 {
-    "editor.formatOnSave": true,
-    "cmake.setBuildTypeOnMultiConfig": true,
-    "cmake.buildDirectory": "${workspaceFolder}/CMake/build",
-    "workbench.colorCustomizations": {
+	"editor.formatOnSave": true,
+	"workbench.colorCustomizations": {
 		"activityBar.activeBackground": "#59f3e1",
 		"activityBar.activeBorder": "#df4df2",
 		"activityBar.background": "#59f3e1",
@@ -21,5 +19,5 @@
 		"titleBar.inactiveBackground": "#2aefd899",
 		"titleBar.inactiveForeground": "#15202b99"
 	},
-    "peacock.color": "#2aefd8",
+	"peacock.color": "#2aefd8",
 }
