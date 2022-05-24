@@ -5,8 +5,6 @@
 #ifndef SAPPHIRE_SERIALIZE_TEST_CLASS_GUARD
 #define SAPPHIRE_SERIALIZE_TEST_CLASS_GUARD
 
-// #include <Refureku/Refureku.h>
-
 #include "Generated/TestClass.rfkh.h"
 
 class CLASS() TestClass
