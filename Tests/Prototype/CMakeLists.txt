@@ -21,6 +21,18 @@ add_executable(SA_SerializeProto "main.cpp")
 target_link_libraries(SA_SerializeProto PUBLIC SA_Serialize)
 
 
+target_include_directories(SA_SerializeProto PUBLIC Include)
+
+
+## Refureku Dependency
+
+add_custom_target(RunRefurekuGenerator
+					WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+					COMMAND RefurekuGenerator "${PROJECT_SOURCE_DIR}/Proto_RefurekuSettings.toml") 
+
+add_dependencies(SA_SerializeProto RunRefurekuGenerator)
+
+
 
 # Tests
 

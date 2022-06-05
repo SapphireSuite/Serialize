@@ -38,6 +38,8 @@ googletest/
 # Log files
 [Ll]ogs/
 
+# Refureku
+Generated/
 
 # Documentation generated files
 html/
